@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="LCL-Banque et Assurance" />
+        <meta name="author" content="Maksudul Haque" />
+        <link rel="icon"  href="https://is2-ssl.mzstatic.com/image/thumb/Purple112/v4/8c/4e/46/8c4e465e-bf2a-efbc-a612-20e5a87bb74f/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.jpg">
+        <title>
+            {% block head_title %}LCL - Banque et assurance{% endblock %}
+        </title>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+        {% block head_extra %}{% endblock %}
+    </head>
+    <body class="bg-gray-100">
+      
+      <a href="{% url 'accounts:user_login' %}">
+      <img src="static/image/1.jpg" width="1372" height="720" >
+      </a>
+      <br>
+      <img src="static/image/2.jpg" width="1376" height="350" >
+      <br>
+        <img src="static/image/3.jpg" width="1375" height="650" >
+      <br>
+        <img src="static/image/4.jpg" width="1369" height="664" >
+      <br>
+        <img src="static/image/5.jpg" width="1369" height="660" >
+      <br>
+        <img src="static/image/6.jpg" width="1372" height="663" >
+      <br>
+        <img src="static/image/7.jpg" width="1372" height="646" >
+      <br>
+        <img src="static/image/8.jpg" width="1372" height="654" >
+      <br>
+        <img src="static/image/9.jpg" width="1372" height="672" >
+    </body>

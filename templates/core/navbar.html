@@ -1,0 +1,33 @@
+{% load static %}
+<nav class="flex items-center justify-between flex-wrap bg-white p-6 border-green-600">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <img src="https://images.prismic.io/portail-lcl-web%2F30c1d897-783f-434d-a7f3-a7d08d2f0593_lcl_logo_bleu_signature.svg?auto=compress,format"  width="100" height="100" alt="LCL - Banque et assurance">
+        
+    </div>
+    <div class="block lg:hidden">
+        <button class="flex items-center px-3 py-2 border rounded text-white border-white-400 hover:text-white hover:border-white">
+            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+        </button>
+    </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto ">
+        {% if request.user.is_authenticated %}
+            <div class="text-md lg:flex-grow"></div>
+            <div class="text-md lg:flex-grow"></div>
+            <div>
+                <a href="{% url 'accounts:user_logout' %}" class="mr-2 inline-block font-medium text-sm px-4 py-2 leading-none border rounded bg-red-600 text-white border-red  mt-4 lg:mt-0">DECONNEXION</a>
+            </div>
+        {% else %}
+            <div class="text-md lg:flex-grow"></div>
+            <div>
+                <a href="{% url 'accounts:user_login' %}" class="mr-2 inline-block font-medium text-sm px-4 py-2 leading-none border rounded bg-green-600 text-white border-green hover:border-green hover:text-green-700 hover:bg-white mt-4 lg:mt-0">MA BANQUE EN LIGNE</a>
+            </div>
+            
+            <!--
+            <div>
+                <a href="{% url 'accounts:user_registration' %}" class="mr-2 inline-block font-medium text-sm px-4 py-2 leading-none border rounded bg-red-600 text-white border-red  mt-4 lg:mt-0">register</a>
+            </div>
+            -->
+        
+        {% endif %}
+    </div>
+</nav>

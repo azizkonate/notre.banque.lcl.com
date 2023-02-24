@@ -1,0 +1,14 @@
+MALE = 'M'
+FEMALE = 'F'
+BANQUE="BANQUE"
+EPARGNE="EPARGNE"
+
+GENDER_CHOICE = (
+    (MALE, "Male"),
+    (FEMALE, "Female"),
+)
+ACCOUNT_CHOICE = (
+    (BANQUE, "BANQUE"),
+    (EPARGNE, "EPARGNE"),
+)
+

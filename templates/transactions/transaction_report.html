@@ -1,0 +1,204 @@
+{% extends 'core/base.html' %}
+
+{% block head_title %}LCL - Banque et assurance{% endblock %}
+
+{% block head_extra %}
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+{% endblock %}
+
+{% block content %}
+
+    <table class="bg-gray-100">
+        <tbody>
+            <tr>
+                <td align="left" width="30%"><strong><font size="4" face="times new roman">Bienvenue dans votre espace Client <br>GONDALLIER CYNTHIA VABE</font></strong><br><a href="#">Vos coordonnées</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h6 class="table3" style="color: red;">
+        <font size="4" face="times new roman"> Compte Bloqué 
+            <img src="https://serrurier.ovh/wp-content/uploads/2018/07/cadenas-ferme.png" height="15" width="15">
+        </font>
+    </h6>
+
+    <h5 class="font-mono text-center pb-5 pt-10">SOLDE TOTAL DES COMPTES</h5>
+    <h1 style="font-size: 3rem" class="font-black text-center text-gray-800">1 350 000,00 €</h1>
+
+    <hr />
+    <h6 class="font-mono text-center pb-1 pt-1">Détails - Relevé d'Identité Bancaire(RIB)</h6>
+    <table class="table-auto mx-auto w-full mt-8">
+        <thead class="bg-gray-800 text-white">
+        <tr class="uppercase font-semibold text-sm">
+            <th class="px-4 py-2">Titulaire du compte :</th>
+            <th class="px-4 py-2">GONDALLIER CYNTHIA VABE</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="{% cycle 'bg-gray-300' 'bg-white-100' %}">
+            <td class="border px-4 py-2 ">Numéro du compte bancaire :</td>
+            <td class="border px-4 py-2 ">0002016010</td>
+        </tr>
+
+        <tr class="{% cycle 'bg-gray-300' 'bg-white-100' %}">
+            <td class="border px-4 py-2 ">IBAN</td>
+            <td class="border px-4 py-2 ">FR76 *** *** ***201601 075</td>
+        </tr>
+
+        <tr class="{% cycle 'bg-gray-300' 'bg-white-100' %}">
+            <td class="border px-4 py-2 ">Solde :</td>
+            <td class="border px-4 py-2 ">0</td>
+        </tr>
+
+        <tr class="{% cycle 'bg-gray-300' 'bg-white-100' %}">
+            <td class="border px-4 py-2 ">Operation en cours :</td>
+            <td class="border px-4 py-2">1 350 000,00 €</td>
+        </tr>
+
+        <tr class="{% cycle 'bg-gray-300' 'bg-white-100' %}">
+            <td class="border px-4 py-2 ">Reference :</td>
+            <td class="border px-4 py-2 ">USYBD414ZA</td>
+        </tr>
+
+        <tr class="{% cycle 'bg-gray-300' 'bg-white-100' %}">
+            <td class="border px-4 py-2 ">Motif operation:</td>
+            <td class="border px-4 py-2 ">Depot a vue</td>
+        </tr>
+
+        <tr class="{% cycle 'bg-gray-300' 'bg-white-100' %}">
+            <td class="border px-4 py-2 ">Domiciliation :</td>
+            <td class="border px-4 py-2 ">LCL Nantes 50 Otages. 2 allée Penthièvre 44000 Nantes, France</td>
+        </tr>
+    
+        </tbody>
+    </table>
+
+
+    <hr />
+    <hr />
+    <h6 class="font-mono text-center pb-1 pt-1">Le relevé de votre situation financière</h6>
+    <form method="get">
+        <div class="mt-10 h-10 pl-3 pr-2 bg-white border rounded-md border-gray-500 flex justify-between items-center relative">
+            <input type="search" name="daterange" id="search" placeholder="Filter using date range" value="{{ request.GET.daterange }}" class="appearance-none w-full outline-none focus:outline-none active:outline-none" />
+            <button type="submit" class="ml-1 outline-none focus:outline-none active:outline-none">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </button>
+        </div>
+        {% if form.daterange.errors %}
+            {% for error in form.daterange.errors %}
+                <p class="text-red-600 text-sm italic">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
+    </form>
+    <table class="table-auto mx-auto w-full mt-8">
+        <thead class="bg-gray-800 text-white">
+        <tr class="uppercase font-semibold text-sm">
+            <th class="px-4 py-2">GESTIONNAIRE</th>
+            <th class="px-4 py-2">OPERATION</th>
+            <th class="px-4 py-2">MONTANT</th>
+            <th class="px-4 py-2">Solde après Transaction</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for transaction in object_list %}
+        <tr class="{% cycle 'bg-gray-300' 'bg-white-100' %}">
+            <td class="border px-4 py-2 ">FRANCOIS DUPORT</td>
+            <td class="border px-4 py-2 ">*********</td>
+            <td class="border px-4 py-2 ">1 350 000,00 €</td>
+            <td class="border px-4 py-2 ">1 350 000,00 €</td>
+        </tr>
+        {% endfor %}
+        <tr class="bg-gray-600 text-white">
+            <th class="px-4 py-2 text-right" colspan="3">Solde Final</th>
+            <th class="px-4 py-2 ">1 350 000,00 €</th>
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="table-auto mx-auto w-full mt-0">
+        <thead class="bg-gray-100 border-red-100">
+        <tr class="font-semibold text-sm">
+            <th class="px-1 py-8 ">STATUT:</th>
+            <th class="px-1 py-8 text-red-600">BLOQUE</th>
+            <th class="px-8 py-8 text-red-600"> </th>
+            <th class="px-8 py-8 text-red-600"> </th>
+            <th colspan="4" class=" text-red-600">
+                <marquee behavior="alternate">
+                <b>TAXE DE REGULATION A PAYER 1,63% soit 22 000,00 €
+                </b>
+                </marquee> 
+            </th>
+        </tr>
+    </table>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+
+    <div class="justify-between">
+        <!-- Icon buttons with text-->
+        <button type="button" class="btn btn-outline-primary">
+          <i class="bi bi-bar-chart-fill"></i> Synthèse
+        </button>
+        <button type="button" class="btn btn-outline-primary">
+          <i class="bi bi-arrow-down-up"></i> Virements
+        </button>
+        <button type="button" class="btn btn-outline-primary">
+          <i class="bi bi-telephone-forward"></i> Conseiller
+        </button>
+
+        <button type="button" class="btn btn-outline-primary">
+          <i class="bi bi-bell-fill"></i> Actualités
+        </button>
+        <button type="button" class="btn btn-outline-primary">
+          <i class="bi bi-bookmark-plus-fill text-primary"></i> Plus
+        </button>
+
+        <button type="button" class="btn btn-warning">
+          <i class="bi bi-credit-card-fill text-dark"></i> Carte
+        </button>
+
+
+    </div>
+
+
+
+
+
+
+{% endblock %}
+
+{% block footer_extra %}
+    <script type="text/javascript">
+        $(function () {
+            $('input[name="daterange"]').daterangepicker({
+                autoUpdateInput: false,
+                locale: {
+                    cancelLabel: "Clear",
+                },
+            });
+
+            $('input[name="daterange"]').on("apply.daterangepicker", function (ev, picker) {
+                $(this).val(picker.startDate.format("YYYY-MM-DD") + " - " + picker.endDate.format("YYYY-MM-DD"));
+            });
+
+            $('input[name="daterange"]').on("cancel.daterangepicker", function (ev, picker) {
+                $(this).val("");
+            });
+        });
+    </script>
+{% endblock %}
