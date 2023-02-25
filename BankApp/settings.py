@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-2*qaq+9%q(tt9e70_3@hwta7f%s*2avx611$o0bkey1uf!qw8q
 DEBUG_PROPAGATE_EXCEPTIONS = True
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app','.now.sh']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 LOGIN_REDIRECT_URL = '/transactions/report'
 
 # Application definition
@@ -87,15 +87,11 @@ WSGI_APPLICATION = 'BankApp.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-   'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    #'default': {
+    #   'ENGINE': 'django.db.backends.sqlite3',
+    #   'NAME': BASE_DIR / 'db.sqlite3',
+    #}
 }
-
-#DATABASES = {
-#   'default': dj_database_url.config()
-#}
 
 
 # Password validation
@@ -134,7 +130,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_buid','static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
