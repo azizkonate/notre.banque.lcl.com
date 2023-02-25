@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-2*qaq+9%q(tt9e70_3@hwta7f%s*2avx611$o0bkey1uf!qw8q
 DEBUG_PROPAGATE_EXCEPTIONS = True
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://bank-of-africa-com.herokuapp.com/','http://127.0.0.1:8000/']
+ALLOWED_HOSTS = ['.vercel.app','.now.sh']
 LOGIN_REDIRECT_URL = '/transactions/report'
 
 # Application definition
@@ -132,14 +132,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_buid','static')
 
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
